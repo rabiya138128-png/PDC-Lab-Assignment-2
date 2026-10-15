@@ -4,4 +4,12 @@ public class RequestQueue {
     private int rear;
     private int capacity;
     private int size;
+
+    public RequestQueue(int capacity) {
+        this.capacity = capacity;
+        queueArray = new char[capacity];
+        front = 0;
+        rear = -1;
+        size = 0;
+    }
 }
