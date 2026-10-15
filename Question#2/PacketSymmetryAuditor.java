@@ -12,5 +12,13 @@ public class PacketSymmetryAuditor {
             stack.push(c);
             queue.enqueue(c);
         }
+
+        boolean isSymmetric = true;
+        while (!stack.isEmpty() && !queue.isEmpty()) {
+            if (stack.pop() != queue.dequeue()) {
+                isSymmetric = false;
+                break;
+            }
+        }
     }
 }
