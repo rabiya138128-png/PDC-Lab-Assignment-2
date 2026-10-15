@@ -6,5 +6,11 @@ public class PacketSymmetryAuditor {
 
         TransactionStack stack = new TransactionStack(payload.length());
         RequestQueue queue = new RequestQueue(payload.length());
+
+        for (int i = 0; i < payload.length(); i++) {
+            char c = payload.charAt(i);
+            stack.push(c);
+            queue.enqueue(c);
+        }
     }
 }
