@@ -8,4 +8,10 @@ public class TransactionStack {
         stackArray = new char[capacity];
         top = -1;
     }
+
+    public void push(char c) {
+        if (top < capacity - 1) {
+            stackArray[++top] = c;
+        }
+    }
 }
