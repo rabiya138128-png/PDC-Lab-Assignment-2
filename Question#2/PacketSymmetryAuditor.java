@@ -20,5 +20,12 @@ public class PacketSymmetryAuditor {
                 break;
             }
         }
+
+        if (isSymmetric) {
+            System.out.println("[RESULT] Payload exhibits bidirectional symmetry.");
+        } else {
+            System.out.println("[RESULT] Asymmetry detected.");
+        }
+        System.out.println("=== Question 2 Complete ===");
     }
 }
