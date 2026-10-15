@@ -21,4 +21,8 @@ public class TransactionStack {
         }
         return '\0';
     }
+
+    public boolean isEmpty() {
+        return (top == -1);
+    }
 }
