@@ -20,4 +20,14 @@ public class RequestQueue {
             size++;
         }
     }
+
+    public char dequeue() {
+        if (size > 0) {
+            char temp = queueArray[front];
+            front = (front + 1) % capacity;
+            size--;
+            return temp;
+        }
+        return '\0';
+    }
 }
