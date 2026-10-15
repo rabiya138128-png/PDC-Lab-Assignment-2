@@ -12,4 +12,12 @@ public class RequestQueue {
         rear = -1;
         size = 0;
     }
+
+    public void enqueue(char c) {
+        if (size < capacity) {
+            rear = (rear + 1) % capacity;
+            queueArray[rear] = c;
+            size++;
+        }
+    }
 }
