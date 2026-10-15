@@ -14,4 +14,11 @@ public class TransactionStack {
             stackArray[++top] = c;
         }
     }
+
+    public char pop() {
+        if (top >= 0) {
+            return stackArray[top--];
+        }
+        return '\0';
+    }
 }
