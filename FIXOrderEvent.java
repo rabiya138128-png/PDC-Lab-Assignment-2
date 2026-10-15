@@ -5,4 +5,11 @@ public class FIXOrderEvent extends TradeEvent {
         super(senderId, timestamp, basePrice);
         this.clOrdId = clOrdId;
     }
+
+    @Override
+    public void dispatch() {
+        double fee = basePrice * 0.0015;
+        double total = basePrice + fee;
+        System.out.println("[FIX ORDER] ClOrdId: " + clOrdId + " | Total Execution Cost: " + total);
+    }
 }
