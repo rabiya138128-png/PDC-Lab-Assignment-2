@@ -12,15 +12,12 @@ public class CacheLocalityBenchmark {
                 matrix[i][j] = 1.0;
             }
         }
-
         long rowMajorTime = 0;
         long colMajorTime = 0;
-
         for (int it = 0; it < ITERATIONS; it++) {
             rowMajorTime += traverseRowMajor(matrix);
             colMajorTime += traverseColumnMajor(matrix);
         }
-
         double avgRowTime = (double) rowMajorTime / ITERATIONS / 1_000_000.0;
         double avgColTime = (double) colMajorTime / ITERATIONS / 1_000_000.0;
         double speedup = avgColTime / avgRowTime;
@@ -31,7 +28,6 @@ public class CacheLocalityBenchmark {
         System.out.println("Speedup Ratio: " + String.format("%.2f", speedup) + "x");
         System.out.println("=== Benchmark Complete ===");
     }
-
     public static long traverseRowMajor(double[][] matrix) {
         long startTime = System.nanoTime();
         double sum = 0;
