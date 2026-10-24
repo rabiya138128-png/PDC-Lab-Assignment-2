@@ -7,16 +7,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class InventoryCatalogManager {
-
     private static final int NUM_THREADS = 10;
     private static final int OPERATIONS_PER_THREAD = 50000;
-
     public static void main(String[] args) throws InterruptedException {
-        System.out.println("=== E-Commerce Flash Sale Inventory Concurrency Benchmark ===");
-        
+        System.out.println("=== E-Commerce Flash Sale Inventory Concurrency Benchmark ===");  
         benchmarkSynchronizedMap();
-        benchmarkConcurrentMap();
-        
+        benchmarkConcurrentMap(); 
         System.out.println("=== Benchmark Complete ===");
     }
 
@@ -36,20 +32,16 @@ public class InventoryCatalogManager {
                 }
             });
         }
-
         executor.shutdown();
         executor.awaitTermination(1, TimeUnit.MINUTES);
         long endTime = System.nanoTime();
-
         long durationMs = TimeUnit.NANOSECONDS.toMillis(endTime - startTime);
         long totalOps = (long) NUM_THREADS * OPERATIONS_PER_THREAD * 2;
         double throughput = (double) totalOps / (durationMs / 1000.0);
-
         System.out.println("\n[1] Collections.synchronizedMap Benchmark:");
         System.out.println("   - Execution Time: " + durationMs + " ms");
         System.out.println("   - Throughput: " + String.format("%.2f", throughput) + " ops/sec");
     }
-
     public static void benchmarkConcurrentMap() throws InterruptedException {
         ConcurrentHashMap<String, Integer> concurrentMap = new ConcurrentHashMap<>();
         concurrentMap.put("PROD-001", 1000000);
@@ -65,15 +57,12 @@ public class InventoryCatalogManager {
                 }
             });
         }
-
         executor.shutdown();
         executor.awaitTermination(1, TimeUnit.MINUTES);
         long endTime = System.nanoTime();
-
         long durationMs = TimeUnit.NANOSECONDS.toMillis(endTime - startTime);
         long totalOps = (long) NUM_THREADS * OPERATIONS_PER_THREAD * 2;
         double throughput = (double) totalOps / (durationMs / 1000.0);
-
         System.out.println("\n[2] ConcurrentHashMap Benchmark:");
         System.out.println("   - Execution Time: " + durationMs + " ms");
         System.out.println("   - Throughput: " + String.format("%.2f", throughput) + " ops/sec");
