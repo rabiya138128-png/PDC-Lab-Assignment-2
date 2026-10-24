@@ -1,5 +1,3 @@
-package Question5;
-
 public class ParallelMinSearch extends SensorSearchEngine {
 
     public ParallelMinSearch(double[] sensorData, int startIdx, int endIdx) {
