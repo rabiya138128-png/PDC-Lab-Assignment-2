@@ -5,4 +5,8 @@ public class InventoryCatalogManager {
     public static void benchmarkSynchronizedMap() {
         System.out.println("Running synchronized map benchmark");
     }
+
+    public static void benchmarkConcurrentMap() {
+        System.out.println("Running concurrent map benchmark");
+    }
 }
