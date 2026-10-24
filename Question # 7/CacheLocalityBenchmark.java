@@ -21,4 +21,15 @@ public class CacheLocalityBenchmark {
         }
         return System.nanoTime() - startTime;
     }
+
+    public static long traverseColumnMajor(double[][] matrix) {
+        long startTime = System.nanoTime();
+        double sum = 0;
+        for (int j = 0; j < N; j++) {
+            for (int i = 0; i < N; i++) {
+                sum += matrix[i][j];
+            }
+        }
+        return System.nanoTime() - startTime;
+    }
 }
